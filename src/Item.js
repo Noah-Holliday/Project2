@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import SurvivalObjects from './items/SurvivalObjects.json'
 import Grass from './Grass.js'
 import GrassLarge from "./GrassLarge";
@@ -50,14 +50,12 @@ export default function Item(props) {
     console.log(ItemToRender)
 
     return (
-        <Suspense fallback={null}>
-            <group>
-                {ItemToRender[props.currentRenderPosition]}
-                {CreateItemDescription(
-                    "Type: " + SurvivalObjects.listOfObjectsTypes[props.currentRenderType].ObjectType + "\n\n" + 
-                    "Name: " + SurvivalObjects.listOfObjectsTypes[props.currentRenderType].Items[props.currentRenderPosition].name + "\n" +
-                    "Description: " + SurvivalObjects.listOfObjectsTypes[props.currentRenderType].Items[props.currentRenderPosition].description)}
-            </group>
-        </Suspense>
+        <group>
+            {ItemToRender[props.currentRenderPosition]}
+            {CreateItemDescription(
+                "Type: " + SurvivalObjects.listOfObjectsTypes[props.currentRenderType].ObjectType + "\n\n" + 
+                "Name: " + SurvivalObjects.listOfObjectsTypes[props.currentRenderType].Items[props.currentRenderPosition].name + "\n" +
+                "Description: " + SurvivalObjects.listOfObjectsTypes[props.currentRenderType].Items[props.currentRenderPosition].description)}
+        </group>
     )
 }
